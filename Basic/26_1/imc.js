@@ -1,32 +1,34 @@
 const readline = require('readline-sync');
 
 const urWeight = readline.questionFloat('how much you weight? ');
-const urHeight = readline.questionFloat('how tall are you? ');
 
-const situation = ""
+const urHeight = readline.questionInt('how tall are you? ');
+
 function IMC (weight, height)  {
 
-    if(weight / height * 2 < 18.5) {
-        return situation.push( "Under weight, too thin")
+    const result = (weight / Math.pow(height / 100, 2)).toFixed(2);
+
+    console.log(`IMC: ${result}`);
+
+    if(result < 18.5) {
+        return console.log( "Situation: Under weight, too thin")
     }
-    else if(weight / height * 2 > 18.5 && weight / height * 2 < 24.9) {
-        return situation.push( "Normal weight")
+    else if(result > 18.5 && result < 24.9) {
+        return console.log( "Situation: Normal weight")
     }
-    else if(weight / height * 2 > 25.5 && weight / height * 2 < 29.9) {
-        return situation.push( "Above weight")
+    else if(result > 25.5 && result < 29.9) {
+        return console.log( "Situation: Above weight")
     }
-    else if(weight / height * 2 > 25.5 && weight / height * 2 < 29.9) {
-        return situation.push( "Obesity, first degree")
+    else if(result > 25.5 && result < 29.9) {
+        return console.log( "Situation: Obesity, first degree")
     }
-    else if(weight / height * 2 > 25.5 && weight / height * 2 < 29.9) {
-        return situation.push ("Obesity, second degree")
+    else if(result > 25.5 && result < 29.9) {
+        return console.log( "Situation: Obesity, second degree")
     }
-    else if(weight / height * 2 > 25.5 && weight / height * 2 < 29.9) {
-        return situation.push (" Obesity, third degree")
+    else if(result > 25.5 && result < 29.9) {
+        return console.log( "Situation: Obesity, third degree")
     }
-    else if(weight / height * 2 > 40.0) {
-        return situation.push (" Morbid obesity")
-    }
+    console.log( "Situation: Morbid obesity")
 }
 
-console.log(IMC(urWeight, urHeight), situation);
+IMC(urWeight, urHeight);
