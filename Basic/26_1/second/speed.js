@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 
-const urDistance = readline.questionFloat('The distance ? ');
+const urDistance = readline.questionInt('The distance ? ');
 
 const urWeight = readline.questionInt('Weight ? ');
 
